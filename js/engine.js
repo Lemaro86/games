@@ -9,20 +9,11 @@
 /** ENGINE */
 
 class MyData {
-    counter = 0;
     openedImages = [];
     target = undefined;
 
     setTarget(target) {
         this.target = target;
-    }
-
-    increment() {
-        this.counter = this.counter + 1;
-    }
-
-    resetCounter(val) {
-        this.counter = val;
     }
 
     addOpenedImage(value) {
@@ -34,30 +25,26 @@ const currentData = new MyData();
 
 const handleClick = (event) => {
     event.preventDefault();
-    if (event.target.src && event.target.style.opacity !== '1') {
+    if (event.target.src && event.target.style.opacity !== '1') { //check is hidden and is image
         const src = event.target.src;
-        currentData.increment(1);
         event.target.classList.add('visible');
-        if (currentData.counter === 1) {
+
+        if (currentData.target?.src === src) {
+            currentData.addOpenedImage(src);
+            currentData.setTarget(undefined);
+        } else {
+            if (!currentData.openedImages.includes(src)) {
+                currentData.target?.classList?.remove('visible');
+            }
+
             currentData.setTarget(event.target);
         }
-
-        if (currentData.counter === 2) {
-            if (currentData.target.src === src) {
-                currentData.addOpenedImage(src);
-            } else {
-                currentData.target.classList.remove('visible');
-                setTimeout(() => {
-                    event.target.classList.remove('visible');
-                }, 1000);
-                currentData.setTarget(event.target);
-            }
-            currentData.resetCounter(0);
-        }
-
-
-
     }
 }
 
-const listeners = document.addEventListener('click', handleClick)
+const restartGame = () => {
+    window.location.reload();
+}
+
+document.addEventListener('click', handleClick);
+document.getElementById('restart').addEventListener('click', restartGame);
