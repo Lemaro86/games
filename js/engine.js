@@ -39,6 +39,10 @@ const handleClick = (event) => {
 
             currentData.setTarget(event.target);
         }
+
+        if (currentData.openedImages.length === 6){
+            document.getElementById('youWin').classList.add('show');
+        }
     }
 }
 
@@ -46,5 +50,10 @@ const restartGame = () => {
     window.location.reload();
 }
 
+const hideGif = () => {
+    document.getElementById('youWin').classList.remove('show');
+}
+
 document.addEventListener('click', handleClick);
 document.getElementById('restart').addEventListener('click', restartGame);
+document.getElementById('close').addEventListener('click', hideGif);

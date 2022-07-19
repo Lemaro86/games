@@ -17,7 +17,7 @@ function fillRandomIndexes(){
 
 fillRandomIndexes(); // randomIndexes = [,7,2,4,9,11,10,8,6,12];
 
-const imagesElements = document.querySelectorAll('img'); // [ Element - img - 12 картинок ]
+const imagesElements = document.querySelectorAll('.row img'); // [ Element - img - 12 картинок ]
 for (const image of imagesElements){
     image.setAttribute('src', `./images/${images[randomIndexes[0] - 1]}.png`);
     randomIndexes.shift();
