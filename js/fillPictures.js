@@ -1,5 +1,4 @@
-const images = ['blow', 'hat', 'cherry', 'snail', 'flow', 'tree',
-    'blow', 'hat', 'cherry', 'snail', 'flow', 'tree'];
+const images = ['blow', 'hat', 'cherry', 'snail', 'flow', 'tree', 'blow', 'hat', 'cherry', 'snail', 'flow', 'tree'];
 const randomIndexes = []; // 1,3,5,7,2,4,9,0,11,10,8,6;
 
 function fillRandomIndexes(){
