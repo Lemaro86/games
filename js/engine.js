@@ -1,11 +1,3 @@
-/**
- * 1. handle click
- * 2. if 3 click - close prev 2
- * 3. if [0] === [1] = ok - save it and disable click;
- * 4. if [0] !== [1] - close both
- * 5. add timer for close
- * */
-
 /** ENGINE */
 
 class MyData {
